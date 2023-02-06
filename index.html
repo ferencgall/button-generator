@@ -1,0 +1,35 @@
+<html>
+  <head>
+    <script>
+      function generateHtml() {
+        let buttonText = document.getElementById("buttonText").value;
+        let bgColor = document.getElementById("bgColor").value;
+
+        let html = `
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+            <tr>
+                <td>
+                    <table border="0" cellspacing="0" cellpadding="0">
+                        <tr>
+                            <td bgcolor="${bgColor}" style="padding: 16px; border-radius:4px">
+                                <a href="http://my.cris.dev:3008/services/3/viewer" target="_blank" style="font-size: 16px; mso-line-height-rule:exactly; line-height: 16px; font-family: 'Cabin',Arial, Helvetica, sans-serif; font-weight: 100; letter-spacing:0.025em; color: #ffffff; text-decoration: none; display: inline-block;">${buttonText}</a>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+        `;
+        document.getElementById("output").innerHTML = html;
+      }
+    </script>
+  </head>
+  <body>
+    <form>
+      Button Text: <input type="text" id="buttonText" /><br />
+      Background Color: <input type="text" id="bgColor" /><br />
+      <input type="button" value="Generate HTML" onclick="generateHtml()" />
+    </form>
+    <div id="output"></div>
+  </body>
+</html>
