@@ -9,7 +9,7 @@
         display: inline-block;
         margin: 20px;
       }
-      input[type="text"] {
+      input[type="text"], select {
         padding: 10px;
         margin: 10px;
         border-radius: 5px;
@@ -35,10 +35,15 @@
       }
     </style>
   </head>
-<body>
+<body style="display: flex; align-items: center; justify-content: center; height: 100vh;">
   <form>
     <label for="color">Button Color:</label>
-    <input type="text" id="color" />
+    <select id="color">
+      <option value="#F98181">Rex PM</option>
+      <option value="#FFC62F">Rex Websites</option>
+      <option value="#5fbeec">Rex Sales & Rentals CRM</option>
+      <option value="#12AAB4">Rex Reach</option>
+    </select>
     <br />
     <label for="text">Button Text:</label>
     <input type="text" id="text" />
@@ -49,8 +54,9 @@
     <input type="button" value="Generate HTML" onclick="generateHtml()" />
     <input type="button" value="Copy to Clipboard" onclick="copyToClipboard()" />
   </form>
+  <p>Preview:</p>
+  <br>
   <div id="output" class="output"></div>
-
   <script>
     function generateHtml() {
       const color = document.getElementById("color").value;
@@ -85,4 +91,3 @@
   </script>
 </body>
 </html>
-
