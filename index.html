@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+  <head>
+<style>
+      form {
+        padding: 20px;
+        background-color: lightgray;
+        border-radius: 10px;
+        display: inline-block;
+        margin: 20px;
+      }
+      input[type="text"], select {
+        padding: 10px;
+        margin: 10px;
+        border-radius: 5px;
+        border: none;
+      }
+      input[type="button"] {
+        padding: 10px 20px;
+        background-color: #137191;
+        color: white;
+        border-radius: 5px;
+        border: none;
+        margin-top: 20px;
+        cursor: pointer;
+      }
+      #output {
+        padding: 20px;
+        background-color: lightgray;
+        border-radius: 10px;
+        display: inline-block;
+        margin: 20px;
+        font-size: 16px;
+        font-family: Arial, sans-serif;
+      }
+    </style>
+  </head>
+<body style="display: flex; align-items: center; justify-content: center; height: 100vh;">
+  <form>
+    <label for="color">Button Color:</label>
+    <select id="color">
+      <option value="#F98181">Rex PM</option>
+      <option value="#FFC62F">Rex Websites</option>
+      <option value="#5fbeec">Rex Sales & Rentals CRM</option>
+      <option value="#12AAB4">Rex Reach</option>
+    </select>
+    <br />
+    <label for="text">Button Text:</label>
+    <input type="text" id="text" />
+    <br />
+    <label for="url">Button URL:</label>
+    <input type="text" id="url" />
+    <br />
+    <input type="button" value="Generate HTML" onclick="generateHtml()" />
+    <input type="button" value="Copy to Clipboard" onclick="copyToClipboard()" />
+  </form>
+  <p>Preview:</p>
+  <br>
+  <div id="output" class="output"></div>
+  <script>
+    function generateHtml() {
+      const color = document.getElementById("color").value;
+      const text = document.getElementById("text").value;
+      const url = document.getElementById("url").value;
+      const html = `
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td>
+              <table border="0" cellspacing="0" cellpadding="0">
+                <tr>
+                  <td bgcolor="${color}" style="background: ${color}; padding: 16px; border-radius:4px">
+                    <a href="${url}" target="_blank" style="font-size: 14px; mso-line-height-rule:exactly; line-height: 16px; font-weight: bold; letter-spacing:0.025em; color: #ffffff; text-decoration: none; display: inline-block;">${text}</a>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+        </table>
+      `;
+      document.getElementById("output").innerHTML = html;
+    }
+
+    async function copyToClipboard() {
+      try {
+        await navigator.clipboard.writeText(document.getElementById("output").innerHTML);
+        alert("Copied to clipboard!");
+      } catch (err) {
+        console.error("Failed to copy to clipboard: ", err);
+      }
+    }
+  </script>
+</body>
+</html>
