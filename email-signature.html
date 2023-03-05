@@ -102,22 +102,18 @@ border: 1px solid #E6573F;
     </style>
   </head>
 <body style="display: flex; align-items: center; justify-content: center; height: 100vh;">
-  <form>
-    <label for="firstName">First Name:</label>
-    <input type="text" id="firstName" />
-    <br />
-    <label for="lastName">Last Name:</label>
-    <input type="text" id="lastName" />
-    <br />
-    <label for="lastName">Role:</label>
-    <input type="text" id="role" />
-    <br />
-    <label for="avatarUrl">Avatar URL:</label>
-    <input type="text" id="avatarUrl" />
-    <br />
-    <input type="button" value="Generate HTML" onclick="generateHtml()" />
-    <input type="button" value="Copy to Clipboard" onclick="copyToClipboard()" />
-  </form>
+<form>
+  <input type="text" id="firstName" placeholder="Enter your first name" />
+  <br />
+  <input type="text" id="lastName" placeholder="Enter your last name" />
+  <br />
+  <input type="text" id="role" placeholder="Enter your role" />
+  <br />
+  <input type="text" id="avatarUrl" placeholder="Enter your avatar URL" />
+  <br />
+  <input type="button" value="Generate HTML" onclick="generateHtml()" />
+  <input type="button" value="Copy to Clipboard" onclick="copyToClipboard()" />
+</form>
   <br>
   <div id="output" class="output"></div>
   <script>
